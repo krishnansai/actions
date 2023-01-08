@@ -11,6 +11,6 @@ jobs:
       - name : list
         run: |
           node -v
-          ls
+          ls /bin/
           npm -v
           
