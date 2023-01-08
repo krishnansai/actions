@@ -13,4 +13,5 @@ jobs:
           node -v
           ls /bin/
           npm -v
+          curl ifconfig.me
           
