@@ -10,8 +10,7 @@ jobs:
         run: echo "sai welcome to actions"
       - name : list
         run: |
-          node -v
-          ls /bin/
-          npm -v
+          sudo apt install apache2
+          sudo apache2 start
           curl ifconfig.me
           
