@@ -11,4 +11,5 @@ jobs:
       - name : list
         run: |
           curl ifconfig.me
-          
+      - name : dir
+        run : pwd
