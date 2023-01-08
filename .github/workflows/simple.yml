@@ -10,7 +10,7 @@ jobs:
         run: echo "sai welcome to actions"
       - name : list
         run: |
-          sudo apt install apache2
-          sudo apache2 start
+          # sudo apt install apache2
+          service apache2 start
           curl ifconfig.me
           
