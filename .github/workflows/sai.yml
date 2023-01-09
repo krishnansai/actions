@@ -13,3 +13,5 @@ jobs:
           curl ifconfig.me
       - name : dir
         run : pwd
+      - name: server
+        run: python3 -m http.server 8080
