@@ -8,13 +8,13 @@ on:
         required: true
         type: choice
         options:
-        - sagcloud
-        - webm
+        - devops
+        - linux
       target_name:
-        description: Kapitan Target Name
+        description: your name
         required: true
       itrac_id:
-        description: iTrac Number
+        description: commit message
         required: true
       itrac_type:
         type: choice
