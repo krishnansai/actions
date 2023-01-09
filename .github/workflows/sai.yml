@@ -1,6 +1,29 @@
 name: linux commands
 
-on: [push]
+on:
+  workflow_dispatch:
+    inputs:
+      repo_project:
+        description: Repo project
+        required: true
+        type: choice
+        options:
+        - sagcloud
+        - webm
+      target_name:
+        description: Kapitan Target Name
+        required: true
+      itrac_id:
+        description: iTrac Number
+        required: true
+      itrac_type:
+        type: choice
+        description: iTrac Type
+        required: true
+        options:
+        - feature
+        - ticket
+        - fix
 
 jobs:
   run-shell-command:
