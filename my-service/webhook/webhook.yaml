@@ -1,0 +1,18 @@
+apiVersion: webhookconfig.keptn.sh/v1beta1
+kind: WebhookConfig
+metadata:
+  name: webhook-configuration
+spec:
+  webhooks:
+    - type: sh.keptn.event.deployment.triggered
+      requests:
+        - url: https://hooks.slack.com/services/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
+          payload: >2-
+             {'text':'Hello World'}
+          headers:
+            - key: Content-Type
+              value: application/json
+          method: POST
+      subscriptionID: faefe03b-76fe-4b52-b37b-811afad50ba2
+      sendFinished: true
+      sendStarted: true
