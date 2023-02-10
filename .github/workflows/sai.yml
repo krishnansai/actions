@@ -1,17 +1,13 @@
-name: webhook passive example
+name: Ping
 on:
   repository_dispatch:
-    types: 
-      - passive-task
+    types: [run-ping]
 jobs:
-  test:
-    name: Test
+  ping:
     runs-on: ubuntu-latest
     steps:
-    - name: my passive task
-      run: |
-        echo "Received passive webhook, displaying received data"
-        echo "type = ${{ github.event.client_payload.type }}"
-        echo "shkeptncontext = ${{ github.event.client_payload.shkeptncontext }}"
-        echo "id = ${{ github.event.client_payload.id }}"
-        
+      - uses: actions/checkout@v2
+      - name: Install packages
+        run: npm ci
+      - name: Run Ping
+        run: npm run ping
