@@ -1,0 +1,18 @@
+apiVersion: webhookconfig.keptn.sh/v1beta1
+kind: WebhookConfig
+metadata:
+  name: webhook-configuration
+spec:
+  webhooks:
+    - type: sh.keptn.event.deployment.triggered
+      requests:
+        - url: https://sagportal.webhook.office.com/webhookb2/30f2281d-241c-4c5b-ab66-bee0dab32e72@d9662eb9-ad98-4e74-a8a2-04ed5d544db6/IncomingWebhook/7c7205d649464a11a792bd8e6103220e/ec142563-ed76-43b2-8907-f75301cf5171
+          payload: >-
+            {  "@type": "MessageCard",  "@context": "http://schema.org/extensions",  "themeColor": "000000",  "summary": "Keptn Quality Gate Evaluation",}
+          headers:
+            - key: Content-Type
+              value: application/json
+          method: POST
+      subscriptionID: faefe03b-76fe-4b52-b37b-811afad50ba2
+      sendFinished: true
+      sendStarted: true
