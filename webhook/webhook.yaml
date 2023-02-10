@@ -1,0 +1,16 @@
+apiVersion: webhookconfig.keptn.sh/v1beta1
+kind: WebhookConfig
+metadata:
+  name: webhook-configuration
+spec:
+  webhooks:
+    - type: sh.keptn.event.deployment.triggered
+      requests:
+        - url: https://sagportal.webhook.office.com/webhookb2/30f2281d-241c-4c5b-ab66-bee0dab32e72@d9662eb9-ad98-4e74-a8a2-04ed5d544db6/IncomingWebhook/7c7205d649464a11a792bd8e6103220e/ec142563-ed76-43b2-8907-f75301cf5171
+          payload: >-
+            {"@type":"MessageCard","@context":"http://schema.org/extensions","themeColor":"000000","summary":"Keptn Quality Gate Evaluation","sections":[{"activityTitle":"Keptn Quality Gate Evaluation","activityImage":"https://github.com/keptn/keptn/raw/master/assets/keptn_logo.png","facts":[{"name":"Result","value":"{{.data.evaluation.result}}"},{"name":"Score","value":"{{.data.evaluation.score}}%"},{"name":"Project","value":"{{.data.project}}"},{"name":"Service","value":"{{.data.service}}"},{"name":"stage","value":"{{.data.stage}}"},{"name":"Date","value":"{{.data.evaluation.timeStart}} - {{.data.evaluation.timeEnd}}"}],"markdown":true}],"potentialAction":[{"@type":"OpenUri","name":"View Evaluation","targets":[{"os":"default","uri":"https://YourKeptn.com/bridge/evaluation/{{.shkeptncontext}}/{{.data.stage}}"}]}]}
+          headers: []
+          method: POST
+      subscriptionID: faefe03b-76fe-4b52-b37b-811afad50ba2
+      sendFinished: false
+      sendStarted: false
