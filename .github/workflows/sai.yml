@@ -1,42 +1,16 @@
-name: linux commands
-
+name: webhook passive example
 on:
-  workflow_dispatch:
-    inputs:
-      repo_project:
-        description: Repo project
-        required: true
-        type: choice
-        options:
-        - devops
-        - linux
-      target_name:
-        description: your name
-        required: true
-      itrac_id:
-        description: commit message
-        required: true
-      itrac_type:
-        type: choice
-        description: iTrac Type
-        required: true
-        options:
-        - good
-        - bad
-        - medium
-
+  repository_dispatch:
+    types: 
+      - passive-task
 jobs:
-  run-shell-command:
+  test:
+    name: Test
     runs-on: ubuntu-latest
     steps:
-      - name: echo string
-        run: echo "sai welcome to actions"
-      - name : list
-        run: |
-          curl ifconfig.me
-          npm install -g localtunnel
-      - name : dir
-        run : pwd
-      - name: server
-        run: |
-          python3 -m http.server 8080
+    - name: my passive task
+      run: |
+        echo "Received passive webhook, displaying received data"
+        echo "type = ${{ github.event.client_payload.type }}"
+        echo "shkeptncontext = ${{ github.event.client_payload.shkeptncontext }}"
+        echo "id = ${{ github.event.client_payload.id }}"
